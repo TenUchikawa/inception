@@ -46,18 +46,26 @@ services:
       dockerfile: Dockerfile
     ports:
       - '80:80'
+      - '443:443'
     restart: always
     depends_on:
       - wordpress
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - wordpress_data:/var/www/html
+      - ssl_certs:/etc/nginx/ssl
     networks:
       - my_network
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost']
+      timeout: 30s
+      retries: 20
+      interval: 1s
 
 volumes:
   db_data:
   wordpress_data:
+  ssl_certs:
 
 networks:
   my_network:

@@ -2,10 +2,11 @@
 FROM debian:bullseye
 
 # パッケージリストを更新
-RUN apt-get update
+RUN apt-get update -y
 
-# 必要なパッケージをインストール
-RUN apt install -y mariadb-client php-fpm php-mysql curl wget unzip
+# 必要なパッケージをインストール pho-fpm7.4
+RUN apt install -y php7.4 php7.4-fpm php7.4-cli php7.4-json php7.4-common php7.4-mysql php7.4-zip php7.4-gd php7.4-mbstring php7.4-curl php7.4-xml php7.4-bcmath
+RUN apt install -y mariadb-client curl wget unzip
 
 # WordPress 用のディレクトリを作成
 RUN mkdir -p /var/www/html
@@ -27,7 +28,7 @@ RUN mkdir /var/log/php-fpm/ && \
 RUN service php7.4-fpm start && service php7.4-fpm stop
 
 # カスタム PHP-FPM 設定ファイルをコピー
-COPY php-fpm/www.conf /etc/php/7.4/fpm/pool.d/www.conf
+COPY www.conf /etc/php/7.4/fpm/pool.d/www.conf
 
 # カスタムエントリーポイントスクリプトをコピー
 COPY docker-entrypoint.sh /docker-entrypoint-initdb.d/docker-entrypoint.sh

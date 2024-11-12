@@ -1,7 +1,10 @@
 FROM debian:bullseye
 
-RUN apt update && apt install -y nginx
+RUN apt update
+RUN apt install -y nginx openssl nginx curl
 
-EXPOSE 80
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+COPY docker-entrypoint.sh /docker-entrypoint-initdb.d/docker-entrypoint.sh
+
+ENTRYPOINT ["/docker-entrypoint-initdb.d/docker-entrypoint.sh"]
+# ENTRYPOINT ["nginx", "-g", "daemon off;"]
