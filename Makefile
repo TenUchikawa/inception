@@ -45,4 +45,4 @@ fclean: clean
 	docker system prune -af
 
 
-.PHONY: all build up down clean re logs healthcheck fclean help
+.PHONY: all build up down clean re logs healthcheck fclean
