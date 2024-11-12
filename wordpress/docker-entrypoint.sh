@@ -39,6 +39,14 @@ if [ ! -f /var/www/html/wp-config.php ]; then
   # サイトの一般設定を更新
   wp option update blogdescription "${WORDPRESS_SITE_DESCRIPTION}" --allow-root
   wp option update timezone_string "Asia/Tokyo" --allow-root
+
+  # サブユーザーを作成
+  wp user create \
+  "${WORDPRESS_EDITOR_USER}" \
+  "${WORDPRESS_EDITOR_EMAIL}" \
+  --user_pass="${WORDPRESS_EDITOR_PASSWORD}" \
+  --role=editor \
+  --allow-root
   echo "WordPress の初期設定が完了しました。"
 fi
 
