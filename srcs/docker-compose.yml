@@ -66,21 +66,21 @@ volumes:
     name: db_data
     driver: local
     driver_opts:
-      device: /home/ten/Documents/42/inception/volumes/db_data
+      device: /home/ten/data/db_data
       o: bind
       type: none
   wordpress_data:
     name: wordpress_data
     driver: local
     driver_opts:
-      device: /home/ten/Documents/42/inception/volumes/wordpress_data
+      device: /home/ten/data/wordpress_data
       o: bind
       type: none
   ssl_certs:
     name: ssl_certs
     driver: local
     driver_opts:
-      device: /home/ten/Documents/42/inception/volumes/ssl_certs
+      device: /home/ten/data/ssl_certs
       o: bind
       type: none
 
