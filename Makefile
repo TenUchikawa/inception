@@ -3,9 +3,9 @@ SRC_DIR = srcs
 DOCKER_COMPOSE = docker compose -f $(SRC_DIR)/docker-compose.yml
 ENV_FILE = $(SRC_DIR)/.env
 
-DB_DATA_DIR = volumes/db_data
-SSL_CERTS_DIR = volumes/ssl_certs
-WORDPRESS_DATA_DIR = volumes/wordpress_data
+DB_DATA_DIR = /home/ten/data/db_data
+SSL_CERTS_DIR = /home/ten/data/ssl_certs
+WORDPRESS_DATA_DIR = /home/ten/data/wordpress_data
 
 
 # デフォルトターゲット

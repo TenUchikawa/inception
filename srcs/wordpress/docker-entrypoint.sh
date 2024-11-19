@@ -12,7 +12,6 @@ if [ ! -f /var/www/html/wp-config.php ]; then
 
   cd /var/www/html
 
-  
   echo "WordPress をダウンロードします..."
   wp core download --path=/var/www/html --locale=ja --allow-root
 
@@ -28,7 +27,7 @@ if [ ! -f /var/www/html/wp-config.php ]; then
     --allow-root
 
   wp core install \
-    --url="http://localhost" \
+    --url="https://tuchikaw.42.fr" \
     --title="${WORDPRESS_SITE_TITLE}" \
     --admin_user="${WORDPRESS_ADMIN_USER}" \
     --admin_password="${WORDPRESS_ADMIN_PASSWORD}" \
